@@ -15,5 +15,7 @@ async def getUsers(db: Session):
     return db.query(models.User).all()
 
 
-async def deleteUser(db: Session, userInfo: schema.User):
-    db.query().filter(models.User.id == userInfo.id).delete()
+async def deleteUser(db: Session, userId:int):
+    db.query(models.User).filter(models.User.id == userId).delete();
+    db.commit()
+    return "user deleted"

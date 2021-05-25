@@ -28,5 +28,5 @@ async def CreateUser(user:User,db=Depends(db)):
 
 
 @app.delete("/user")
-async  def DeleteUser(user:User,db=Depends(db)):
-    return await crud.deleteUser(db,user)
+async  def DeleteUser(userId:int,db=Depends(db)):
+    return await crud.deleteUser(db,userId)
